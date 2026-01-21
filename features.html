@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VR Headset — Immersive Features</title>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <style>
+    :root{
+      --bg-tint: rgba(6,10,24,0.6);
+      --card: rgba(14,18,40,0.6);
+      --card-hover: rgba(24,28,60,0.7);
+      --text: #e9ecff;
+      --muted: #b5b9d9;
+      --accent: #7b5cff;
+      --accent-2: #00d1ff;
+      --glow: 0 0 24px rgba(123,92,255,0.35), 0 0 48px rgba(0,209,255,0.2);
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    /* Page base */
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background: #05060f;
+      overflow-x: hidden;
+    }
+
+    /* Hero section with background image and tint */
+    .hero{
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 5vh 5vw 12vh;
+      isolation: isolate;
+    }
+    .hero::before{
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1200px 600px at 70% 30%, rgba(0,209,255,0.18), transparent 60%),
+        radial-gradient(1000px 800px at 30% 60%, rgba(123,92,255,0.18), transparent 60%),
+        url("https://images.unsplash.com/photo-1622979135225-d2ba269cf1ec?q=80&w=2400&auto=format&fit=crop");
+      background-size: cover, cover, cover;
+      background-position: center, center, center;
+      filter: saturate(1.1) contrast(1.05) brightness(0.9);
+      z-index: -2;
+    }
+    .hero::after{
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, var(--bg-tint) 0%, rgba(5,6,15,0.85) 40%, rgba(5,6,15,0.95) 100%);
+      z-index: -1;
+    }
+
+    /* Centered VR headset */
+    .stage{
+      position: relative;
+      width: min(1100px, 92vw);
+      aspect-ratio: 16 / 9;
+    }
+    .headset{
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -52%);
+      width: min(520px, 52vw);
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.45)) drop-shadow(0 0 24px rgba(0,209,255,0.2));
+      pointer-events: none;
+      user-select: none;
+    }
+    /* Replace with your own headset PNG for best fidelity */
+    .headset img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+      box-shadow: var(--glow);
+    }
+
+    /* Feature cards */
+    .feature{
+      position: absolute;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 14px;
+      align-items: start;
+      width: clamp(240px, 26vw, 320px);
+      padding: 14px 16px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .feature:hover{
+      background: var(--card-hover);
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+    .icon{
+      width: 28px;
+      height: 28px;
+      align-self: center;
+      color: var(--accent-2);
+      filter: drop-shadow(0 0 6px rgba(0,209,255,0.35));
+    }
+    .feature h3{
+      margin: 0;
+      font-size: clamp(16px, 1.3vw, 18px);
+      letter-spacing: 0.2px;
+    }
+    .feature p{
+      grid-column: 1 / -1;
+      margin: 2px 0 0;
+      font-size: clamp(13px, 1.05vw, 15px);
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    /* Feature positions around the headset (desktop) */
+    .f-top-left    { left: 1.5%;  top: 6%;   }
+    .f-bottom-left { left: 2%;    bottom: 16%; }
+    .f-top-right   { right: 2%;   top: 8%;   }
+    .f-mid-right   { right: 3%;   top: 48%;  }
+
+    /* Buy Now button */
+    .cta-wrap{
+      position: absolute;
+      left: 50%;
+      bottom: -6.5vh;
+      transform: translateX(-50%);
+      display: grid;
+      place-items: center;
+      gap: 12px;
+    }
+    .buy-btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #0a0c18;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border: none;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,209,255,0.25), 0 6px 18px rgba(123,92,255,0.25);
+      cursor: pointer;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .buy-btn:hover{ transform: translateY(-2px); filter: brightness(1.05) }
+    .buy-btn:active{ transform: translateY(0) scale(0.99) }
+    .buy-btn svg{ width: 18px; height: 18px }
+
+    /* Responsive: stack features for small screens */
+    @media (max-width: 900px){
+      .stage{ aspect-ratio: 4 / 5; }
+      .headset{ width: min(420px, 74vw); transform: translate(-50%, -46%); }
+
+      .feature{
+        position: static;
+        width: 100%;
+      }
+      .features-stack{
+        position: absolute;
+        left: 50%;
+        bottom: 15%;
+        transform: translateX(-50%);
+        width: min(680px, 92%);
+        display: grid;
+        gap: 12px;
+      }
+      .cta-wrap{ bottom: -2vh; }
+    }
+
+    @media (max-width: 520px){
+      .hero{ padding-bottom: 18vh; }
+      .headset{ width: 82vw; transform: translate(-50%, -44%); }
+      .features-stack{ bottom: 18%; gap: 10px; }
+      .buy-btn{ width: calc(100vw - 48px); justify-content: center }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero" role="main" aria-label="VR headset hero section with features">
+    <section class="stage" aria-label="Showcase stage">
+
+      <!-- Center headset image (replace src with your product image for best match) -->
+      <div class="headset" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=1600&auto=format&fit=crop"
+             alt="Sleek VR headset with blue and purple reflections" />
+      </div>
+
+      <!-- Absolute-positioned features for desktop -->
+      <article class="feature f-top-left">
+        <!-- 360° Interaction -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 12s4-4 10-4 10 4 10 4-4 4-10 4S2 12 2 12z"/>
+          <circle cx="12" cy="12" r="2"/>
+        </svg>
+        <h3>360° Interaction</h3>
+        <p>Experience 360° environments with spatial audio, physics, and intuitive interaction.</p>
+      </article>
+
+      <article class="feature f-bottom-left">
+        <!-- Virtual Realm -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 11l9-8 9 8v8a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-8z"/>
+        </svg>
+        <h3>Virtual Realm</h3>
+        <p>Personalize your digital identity and build your own spaces.</p>
+      </article>
+
+      <article class="feature f-top-right">
+        <!-- Noise cancellation -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12h3l3 6 4-12 3 6h5"/>
+        </svg>
+        <h3>Noise cancellation</h3>
+        <p>Supports clear voice input, real-time communication, noise cancellation.</p>
+      </article>
+
+      <article class="feature f-mid-right">
+        <!-- AI-Integrated -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <h3>AI-Integrated</h3>
+        <p>Future AI-powered ChatGPT integration, enabling users to interact.</p>
+      </article>
+
+      <!-- Mobile stack (same content reflowed via CSS when <=900px) -->
+      <section class="features-stack" aria-label="Features list for small screens">
+        <article class="feature">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s4-4 10-4 10 4 10 4-4 4-10 4S2 12 2 12z"/><circle cx="12" cy="12" r="2"/>
+          </svg>
+          <h3>360° Interaction</h3>
+          <p>Experience 360° environments with spatial audio, physics, and intuitive interaction.</p>
+        </article>
+        <article class="feature">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 11l9-8 9 8v8a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2v-8z"/>
+          </svg>
+          <h3>Virtual Realm</h3>
+          <p>Personalize your digital identity and build your own spaces.</p>
+        </article>
+        <article class="feature">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12h3l3 6 4-12 3 6h5"/>
+          </svg>
+          <h3>Noise cancellation</h3>
+          <p>Supports clear voice input, real-time communication, noise cancellation.</p>
+        </article>
+        <article class="feature">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <h3>AI-Integrated</h3>
+          <p>Future AI-powered ChatGPT integration, enabling users to interact.</p>
+        </article>
+      </section>
+
+      <!-- Buy Now -->
+      <div class="cta-wrap">
+        <button class="buy-btn" aria-label="Buy now">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1.8"/><circle cx="19" cy="21" r="1.8"/>
+            <path d="M2 3h2l2.4 12.5a2 2 0 0 0 2 1.6h9.6a2 2 0 0 0 2-1.6L22 7H6"/>
+          </svg>
+          Buy now
+        </button>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  background-color: white;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 20px 0;
+  background-color:  rgba(255, 255, 255, 0.85);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.headerone img {
+  height: 40px;
+}
+
+.ulmain {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ulmain li {
+  list-style: none;
+}
+
+.ulmain li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+.logo {
+  height: 1px;
+  width: 100px ;
+}
+
+
+.icon1 {
+  height: 20px;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+.eventboxsection {
+  padding: 60px 30px;
+  background-color: white;
+}
+
+.uleventbox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.uleventboxheading h1 {
+ font-size: 18px;
+  color: rgb(233, 19, 0);
+  font-weight: 300;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  text-align: left;
+}
+
+
+.event-item {
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+}
+
+.event-item img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+ 
+}
+
+.eventcard-grid {
+  display: grid;
+    background-color: transparent;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+  margin-left: 100px;
+}
+.uleventboxheading1 h1 {
+ font-size: 28px;
+  color: rgb(233, 19, 0);
+  font-weight: 300;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  text-align: center;
+}
+.eventcard {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+
+  
+  overflow: hidden;
+  align-items: center;
+}
+
+.eventcard-image {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.eventcard-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-right: 1px solid #eee;
+}
+
+.eventcard-text {
+  padding: 20px;
+  flex: 1;
+}
+
+.eventcard-text p {
+  margin: 6px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.eventcard-text .date {
+  font-weight: bold;
+  font-size: 18px;
+  color: #0078D4;
+}
+
+.eventcard-text button {
+  margin-top: 12px;
+  padding: 8px 14px;
+  background-color: #0078D4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.experience-section {
+max-width: 1200px;
+margin: 40px auto;
+padding: 0 20px;
+text-align: center;
+  margin-top: 30px;
+color: #333;
+
+}
+
+.experience-section h1 {
+font-size: 2.5em;
+margin-bottom: 10px;
+  margin-top: 90px;
+
+}
+
+.experience-section p {
+font-size: 1.2em;
+color: #666;
+margin-bottom: 30px;
+
+}
+
+
+.experiencecard-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+
+}
+
+.experiencecard {
+background-color: #fff;
+border-radius: 12px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+overflow: hidden;
+width: 300px;
+height: 400px;
+
+}
+
+
+
+.experiencecard img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+
+}
+
+.experiencecard-content {
+padding: 20px;
+text-align: left;
+
+}
+
+.experiencecard-content h3 {
+ margin: 0 0 10px;
+font-size: 16px;
+font-weight: lighter;
+color:#444;
+
+}
+
+.experiencecard-content .experiencetitle {
+font-weight: bold;
+font-size: 16px;
+margin-bottom: 10px;
+
+}
+
+.experiencecard-content .experienceduration,
+.experiencecard-content .experienceprice {
+font-size: 0.95em;
+color: #444;
+font-weight: lighter;
+
+}
+
+.see-all {
+display: inline-block;
+margin-top: 30px;
+font-weight: bold;
+color: #0077cc;
+
+text-decoration: none;
+
+}
+
+.trusted-section {
+max-width: 1200px;
+margin: 40px auto;
+padding: 0 20px;
+text-align: center;
+
+color: #333;
+
+}
+
+.trusted-section h1 {
+font-size: 24px;
+margin-bottom: 30px;
+
+}
+
+.trusted-section p {
+font-size: 16px;
+color: #666;
+margin-bottom: 30px;
+
+}
+.eventpartnerboxsection {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.uleventpartnerbox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.eventpartner-item {
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  margin-bottom: 20px;
+}
+
+.eventpartner-item img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+ 
+}
+
+.hero-section {
+  background-image: url('Frame\ \(2\).png'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+ 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  color:  #444;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: cover;
+ 
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 17px;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.name {
+  font-style: italic;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.hero-sectiontitle h1 {
+font-size: 32px;
+margin-bottom: 10px;
+ text-align: center;
+  color:  #444;
+ 
+}
+
+ 
+
+ .footer {
+      background-color: #000;
+      color: #fff;
+      padding: 40px 20px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+
+    .footer-column img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+   .social-row {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-row img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      background-color: #000;
+      color: #fff;
+    }
+
+   
+    .footerlogo {
+      height: 30px;
+  width: 100px ;
+   }
+

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Layout</title>
+<style>
+:root {
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --text-muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --border: 1px solid rgba(0,0,0,0.1);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+body {
+  background: var(--bg);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-row, .second-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1600px;
+  align-items: stretch;
+}
+
+.news-column { flex: 0 0 35%; display: flex; flex-direction: column; gap: 16px; }
+.food-card { flex: 0 0 30%; display: flex; flex-direction: column; border-radius: var(--radius); box-shadow: var(--shadow); border: var(--border); background: var(--card-bg); }
+.league-card { flex: 0 0 30%; display: flex; flex-direction: column; border-radius: var(--radius); box-shadow: var(--shadow); border: var(--border); padding: 15px; background: var(--card-bg); }
+
+.news-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: var(--border);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.card-header { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+.card-content { display: flex; justify-content: space-between; align-items: flex-start; }
+.card-text { flex: 1; font-size: 14px; font-weight: 500; margin-right: 10px; }
+.card-image { width: 70px; height: 70px; border-radius: 8px; object-fit: cover; }
+.card-footer { display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 13px; margin-top: 6px; }
+.card-footer span { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.card-footer span:hover { color: #2563eb; }
+
+.food-card img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+.food-content { padding: 6px 4px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.food-title { font-size: 13px; font-weight: 700; margin: 4px 0; }
+.food-text { font-size: 11px; color: var(--text-muted); line-height: 1.3; flex: 1; }
+.food-footer { text-align: right; }
+.food-footer a { font-size: 11px; font-weight: 600; color: #2563eb; text-decoration: none; }
+
+.league-card h2 { font-size: 1.1rem; margin-bottom: 10px; color: #111; }
+.match-card { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
+.match-card:last-child { border-bottom: none; }
+.team { display: flex; flex-direction: column; align-items: center; text-align: center; width: 80px; }
+.team img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; margin-bottom: 5px; }
+.team span { font-size: 0.8rem; font-weight: 500; color: #333; }
+.score { text-align: center; font-size: 1.2rem; font-weight: 700; color: #111; }
+.score .date { display: block; font-size: 0.75rem; color: #777; }
+.see-more { display: block; text-align: center; margin-top: 8px; color: #0077cc; font-size: 0.85rem; text-decoration: none; }
+.see-more:hover { text-decoration: underline; }
+
+.market-card { flex: 0 0 25%; display: flex; flex-direction: column; border-radius: var(--radius); box-shadow: var(--shadow); border: var(--border); padding: 15px; background: var(--card-bg); }
+.market-header { font-weight: 600; margin-bottom: 10px; font-size: 1rem; }
+.market-list { display: flex; flex-direction: column; gap: 8px; }
+.market-item { display: flex; justify-content: space-between; padding: 6px; border-radius: 6px; background: #f1f3f5; }
+.ticker { font-weight: 600; font-size: 11px; }
+.name { font-size: 10px; color: var(--text-muted); }
+.change.pos { color: #10b981; font-weight: 600; }
+.change.neg { color: #ef4444; font-weight: 600; }
+.value { font-size: 10px; color: var(--text-muted); }
+.spark { width: 100px; height: 20px; }
+
+.calendar-card { flex: 0 0 25%; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 15px; display: flex; flex-direction: column; }
+.calendar-header { font-weight: 600; margin-bottom: 10px; font-size: 1rem; }
+.calendar-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 12px; }
+.calendar-table th { padding: 5px 0; font-weight: 600; color: #333; }
+.calendar-table td { padding: 8px 0; border-radius: 6px; cursor: pointer; }
+.calendar-table td:hover { background: #f3f4f6; }
+
+.app-container { flex: 0 0 38%; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; display: flex; flex-direction: column; position: relative; }
+.app-container .calendar-header { font-weight: 600; margin-bottom: 10px; font-size: 1rem; }
+.add-note { position: relative; display: flex; flex-direction: column; }
+.add-note textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 50px 10px 10px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  font-size: 0.9rem;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+.note-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 5px;
+}
+.note-actions button { cursor: pointer; font-size: 1rem; border: none; background: none; }
+.notes-container { display: flex; flex-direction: column; gap: 10px; }
+
+@media (max-width: 1200px) {
+  .card-row, .second-row { flex-direction: column; align-items: center; }
+  .news-column, .food-card, .league-card, .market-card, .calendar-card, .app-container { flex: 0 0 100%; width: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- First Row -->
+<div class="card-row">
+  <div class="news-column">
+    <div class="news-card">
+      <div class="card-header">DailyPost · 2 t</div>
+      <div class="card-content">
+        <div class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac ante in urna convallis fermentum.</div>
+        <img class="card-image" src="placeholder1.jpg" alt="news">
+      </div>
+      <div class="card-footer"><span>👍 8</span><span>👎 2</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">VestMag · 6 t</div>
+      <div class="card-content">
+        <div class="card-text">Ut egestas, mi nec faucibus pulvinar, libero nulla efficitur enim, nec sodales justo urna et mi.</div>
+        <img class="card-image" src="placeholder2.jpg" alt="art">
+      </div>
+      <div class="card-footer"><span>👍 15</span><span>👎 1</span></div>
+    </div>
+  </div>
+
+  <div class="food-card">
+    <img src="food-placeholder.jpg" alt="Food Dish">
+    <div class="food-content">
+      <div class="food-title">Kremet sopprisotto 🍄</div>
+      <div class="food-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id felis et lorem pulvinar viverra.</div>
+      <div class="food-footer"><a href="#">Les oppskriften →</a></div>
+    </div>
+  </div>
+
+  <div class="league-card">
+    <h2>⚽ World League</h2>
+    <div class="match-card">
+      <div class="team"><img src="team1.jpg" alt="Team A"><span>Team Alpha</span></div>
+      <div class="score"><span class="result">2 - 1</span><span class="date">Nov 11</span></div>
+      <div class="team"><img src="team2.jpg" alt="Team B"><span>Team Beta</span></div>
+    </div>
+    <div class="match-card">
+      <div class="team"><img src="team3.jpg" alt="Team C"><span>Team Gamma</span></div>
+      <div class="score"><span class="result">1 - 1</span><span class="date">Nov 10</span></div>
+      <div class="team"><img src="team4.jpg" alt="Team D"><span>Team Delta</span></div>
+    </div>
+    <div class="match-card">
+      <div class="team"><img src="team5.jpg" alt="Team E"><span>Team Epsilon</span></div>
+      <div class="score"><span class="result">0 - 3</span><span class="date">Nov 9</span></div>
+      <div class="team"><img src="team6.jpg" alt="Team F"><span>Team Zeta</span></div>
+    </div>
+    <a href="#" class="see-more">See more results</a>
+  </div>
+</div>
+
+<!-- Second Row -->
+<div class="second-row">
+  <div class="market-card">
+    <div class="market-header">📊 Market Overview</div>
+    <div class="market-list">
+      <div class="market-item"><div><div class="ticker">LOREM</div><div class="name">Lorem Index</div></div><svg class="spark" viewBox="0 0 100 20"><polyline fill="none" stroke="#10b981" stroke-width="1.5" points="0,14 20,10 40,9 60,8 80,7 100,6"></polyline></svg><div><div class="change pos">+1.23%</div><div class="value">2 312,45</div></div></div>
+      <div class="market-item"><div><div class="ticker">IPSUM</div><div class="name">Ipsum Corp</div></div><svg class="spark" viewBox="0 0 100 20"><polyline fill="none" stroke="#ef4444" stroke-width="1.5" points="0,8 20,10 40,12 60,14 80,15 100,16"></polyline></svg><div><div class="change neg">-0.87%</div><div class="value">895,77</div></div></div>
+      <div class="market-item"><div><div class="ticker">DOLOR/NOK</div><div class="name">Dolor Exchange</div></div><svg class="spark" viewBox="0 0 100 20"><polyline fill="none" stroke="#10b981" stroke-width="1.5" points="0,10 20,9 40,8 60,8 80,9 100,10"></polyline></svg><div><div class="change pos">+0.44%</div><div class="value">9,764</div></div></div>
+      <div class="market-item"><div><div class="ticker">SIT/NOK</div><div class="name">Sit Index</div></div><svg class="spark" viewBox="0 0 100 20"><polyline fill="none" stroke="#10b981" stroke-width="1.5" points="0,12 20,10 40,9 60,8 80,7 100,6"></polyline></svg><div><div class="change pos">+0.62%</div><div class="value">11,341</div></div></div>
+    </div>
+  </div>
+
+  <div class="calendar-card">
+    <div class="calendar-header">🗓️ Kalender</div>
+    <table class="calendar-table">
+      <thead><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr></thead>
+      <tbody>
+        <tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+        <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr>
+        <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr>
+        <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr>
+        <tr><td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="app-container">
+    <div class="calendar-header">📝 Notes</div>
+    <div class="add-note">
+      <textarea id="noteInput" placeholder="Write your note here..."></textarea>
+      <div class="note-actions">
+        <button id="saveBtn" title="Save Note">💾</button>
+        <button id="deleteBtn" title="Delete Note">🗑️</button>
+      </div>
+    </div>
+    <div class="notes-container" id="notesContainer"></div>
+  </div>
+</div>
+
+<script>
+const noteInput = document.getElementById("noteInput");
+const saveBtn = document.getElementById("saveBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+const notesContainer = document.getElementById("notesContainer");
+
+let notes = [];
+let editIndex = null;
+
+function renderNotes() {
+  notesContainer.innerHTML = "";
+  notes.forEach((note, index) => {
+    const card = document.createElement("div");
+    card.className = "note-card";
+
+    const textDiv = document.createElement("div");
+    textDiv.className = "text";
+    textDiv.textContent = note;
+
+    const editBtn = document.createElement("button");
+    editBtn.innerHTML = "✏️";
+    editBtn.title = "Edit Note";
+    editBtn.addEventListener("click", () => {
+      noteInput.value = note;
+      editIndex = index;
+      noteInput.focus();
+    });
+
+    const deleteBtnCard = document.createElement("button");
+    deleteBtnCard.innerHTML = "🗑️";
+    deleteBtnCard.title = "Delete Note";
+    deleteBtnCard.addEventListener("click", () => {
+      notes.splice(index, 1);
+      if (editIndex === index) editIndex = null;
+      renderNotes();
+    });
+
+    card.appendChild(textDiv);
+    card.appendChild(editBtn);
+    card.appendChild(deleteBtnCard);
+    notesContainer.appendChild(card);
+  });
+}
+
+saveBtn.addEventListener("click", () => {
+  const text = noteInput.value.trim();
+  if (!text) return alert("Please type something before saving.");
+  if (editIndex !== null) {
+    notes[editIndex] = text;
+    editIndex = null;
+  } else {
+    notes.push(text);
+  }
+  noteInput.value = "";
+  renderNotes();
+});
+
+deleteBtn.addEventListener("click", () => {
+  noteInput.value = "";
+  editIndex = null;
+});
+</script>
+
+</body>
+</html>

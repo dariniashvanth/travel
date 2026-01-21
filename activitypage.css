@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  background-color: white;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 20px 0;
+  background-color:  rgba(255, 255, 255, 0.85);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.headerone img {
+  height: 30px;
+}
+
+.ulmain {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ulmain li {
+  list-style: none;
+}
+
+.ulmain li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+}
+.logo {
+  height: 1px;
+  width: 100px ;
+}
+
+
+.icon1 {
+  height: 20px;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("Group 2955.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  color: white;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+}
+
+
+.btn {
+  padding: 10px 15px;
+  font-size: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+    margin-top: 70px;
+    
+}
+
+.book-btn {
+  background-color: rgba(255, 255, 255, 0.402);
+  color:#040112e3;
+  font-weight: 400;
+}
+
+
+
+.explore-btn {
+  background-color: #f46a2b;
+  color: white;
+  font-weight: 400;
+  margin-right: 10px;
+ padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.image-column {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 40px;
+   margin-bottom: 30px;
+  gap: 10px;
+}
+
+.image-box {
+  text-align: center;
+  width: calc(100% / 7 - 10px);
+}
+
+.image-box img {
+  width: 75px;
+  height: auto;
+  border-radius: 1px;
+}
+
+.image-box p {
+  margin-top: 8px;
+  font-weight: lighter;
+}
+
+.whycard-container {
+      width: 80%;
+      max-width: 2000px;
+      margin: 50px auto;
+      padding: 20px;
+      margin-top: 60px;
+  margin-bottom: 30px;
+      text-align: center;
+    }
+
+      .whycard-container img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      max-width: 90%;
+      padding-left: 200px;
+      padding-top: 20px;
+     
+ }
+
+ .card-section {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      padding: 100px 40px;
+    }
+
+    .card {
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .card img {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 20px;
+    }
+
+    .card h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #a4a1a1;
+    }
+
+   .destination-section h1 {
+  margin-bottom: 40px;
+  color: #333;
+  margin-left: 180px;
+}
+
+.destination-grids {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 400px;
+}
+
+
+.paris {
+  grid-row: 1 / span 2;
+  grid-column: 1 / 2;
+  background-image: url('paris.png');
+}
+
+
+.italy {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  background-image: url('italy.png');
+}
+
+.poland {
+  grid-row: 1 / 2;
+    
+  grid-column: 3 / span 4;
+  background-image: url('poland.png');
+}
+
+
+.germany {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  background-image: url('germany.png');
+}
+
+.croatia {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+  background-image: url('Croatia.png');
+}
+
+.london {
+  grid-row: 2 / 3;
+  grid-column: 4 / span 3;
+  background-image: url('london.png');
+}
+
+
+.destination-grids > div {
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.destination-grids > div:hover {
+  transform: scale(1.03);
+}
+
+ .picksimage-text-section {
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  gap: 60px;
+}
+
+.pickstext-container p {
+  color: #757171;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.picksimage-container img {
+  width: 500px;
+  height: auto;
+  margin-top: 80px;
+  border-radius: 8px;
+  margin-left: 100px;
+    margin-right: 80px;
+}
+
+.pickstext-container {
+  flex: 1;
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #EB662B;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.experience-section {
+max-width: 1200px;
+margin: 40px auto;
+padding: 0 20px;
+text-align: center;
+
+color: #333;
+
+}
+
+.experience-section h1 {
+font-size: 2.5em;
+margin-bottom: 10px;
+
+}
+
+.experience-section p {
+font-size: 1.2em;
+color: #666;
+margin-bottom: 30px;
+
+}
+
+
+.experiencecard-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+
+}
+
+.experiencecard {
+background-color: #fff;
+border-radius: 12px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+overflow: hidden;
+width: 250px;
+height: 300px;
+
+}
+
+
+
+.experiencecard img {
+width: 100%;
+height: 150px;
+object-fit: cover;
+
+}
+
+.experiencecard-content {
+padding: 20px;
+text-align: left;
+
+}
+
+.experiencecard-content h3 {
+ margin: 0 0 10px;
+font-size: 14px;
+font-weight: lighter;
+color:#444;
+
+}
+
+.experiencecard-content .experiencetitle {
+font-weight: normal;
+font-size: 12px;
+margin-bottom: 10px;
+
+}
+
+.experiencecard-content .experienceduration,
+.experiencecard-content .experienceprice {
+font-size: 10px;
+color: #444;
+font-weight: lighter;
+
+}
+
+.see-all {
+display: inline-block;
+margin-top: 30px;
+font-weight: lighter;
+color: #b8c0c8;
+margin-left: 1000px;
+text-decoration: none;
+
+}
+
+.hero-section {
+  background-image: url('Frame\ \(2\).png'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+ 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  color:  #444;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: cover;
+ 
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 17px;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.name {
+  font-style: italic;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.hero-sectiontitle h1 {
+
+  color: orange;
+ text-align: center;
+ color: transparent; 
+  -webkit-text-stroke: .5px orange;
+  font-size: 24px;
+  font-weight: bold;
+ margin-bottom: 50px;
+ 
+}
+
+ 
+
+ .footer {
+     
+       background-color: #000;
+      color: #fff;
+      padding: 40px 20px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+
+    .footer-column img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+  .social-row {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-row img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      background-color: #000;
+      color: #fff;
+    }
+
+   
+    .footerlogo {
+      height: 20px;
+  width: 100px ;
+   }
+
+
+
+
